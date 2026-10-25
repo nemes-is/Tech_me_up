@@ -34,11 +34,33 @@ y += 1
 print(x)          # 5 : y pointe maintenant vers un autre objet
 ```
 
+### `=` déplace une étiquette, `.append()` modifie l'objet
+
+```python
+a = [1, 2]
+b = a
+a = a + [3]       # + crée une NOUVELLE liste, puis = y déplace l'étiquette a
+print(b)          # [1, 2] : b est resté sur l'ancienne liste
+
+a = [1, 2]
+b = a
+a += [3]          # sur une liste, += modifie l'objet sur place (comme extend)
+print(b)          # [1, 2, 3]
+```
+
+| Écriture | Effet |
+|---|---|
+| `a + [3]` | crée une nouvelle liste, ne touche à rien |
+| `a.append(3)` | ajoute un élément à la liste existante |
+| `a += [3]` | liste : l'agrandit sur place. Immuable (`int`, `str`) : crée un nouvel objet |
+
 ## Pourquoi c'est comme ça
 
-Copier un objet entier à chaque `=` serait lent et gourmand en mémoire. Python ne copie donc que si on le demande explicitement.
+Copier un objet entier à chaque `=` serait lent et gourmand en mémoire. Python ne copie donc que si on le demande explicitement. Avec `+=`, Python demande d'abord à l'objet s'il sait se modifier lui-même : une liste répond oui (c'est plus efficace), un entier non.
 
 ## Pièges
+
+- **`a = a + x` et `a += x` ne sont pas pareils** pour une liste : seul le second se voit depuis les autres étiquettes.
 
 - **Argument par défaut mutable** : `def f(bag=[])` crée la liste une seule fois, au moment du `def`. Elle est partagée par tous les appels. Écrire `bag=None` puis `if bag is None: bag = []`.
 - Passer une liste à une fonction, c'est lui donner une étiquette vers **ta** liste : si elle la modifie, tu le vois.

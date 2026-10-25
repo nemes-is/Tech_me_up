@@ -7,9 +7,9 @@ notions:
     titre: Différence entre local, Git et GitHub
     module: m0
     fiche: local-git-github
-    maitrise: fragile
+    maitrise: en_cours
     vue_le: 2026-10-19
-    prochaine_revision: 2026-10-20
+    prochaine_revision: 2026-10-29
 
   - id: localhost
     titre: "Serveur local : ce que veut dire localhost"
@@ -25,7 +25,7 @@ notions:
     fiche: variables-et-references
     maitrise: fragile
     vue_le: 2026-10-22
-    prochaine_revision: 2026-10-23
+    prochaine_revision: 2026-10-26
 
   - id: muable-immuable
     titre: Objets muables et immuables
@@ -49,7 +49,7 @@ notions:
     fiche: generateurs-paresseux
     maitrise: fragile
     vue_le: 2026-10-22
-    prochaine_revision: 2026-10-23
+    prochaine_revision: 2026-10-26
 
   - id: comprehension-dict
     titre: "Compréhension de dictionnaire vs set ({k: v for ...})"
@@ -70,6 +70,61 @@ notions:
     titre: "uv et .venv : le code se copie, l'environnement se recrée"
     module: m0
     fiche: environnement-virtuel
-    maitrise: fragile
+    maitrise: en_cours
     vue_le: 2026-10-22
-    prochaine_revision: 2026-10-23
+    prochaine_revision: 2026-10-29
+
+  - id: plus-egal-liste
+    titre: "a = a + x (nouvel objet) contre a += x (modification sur place d'une liste)"
+    module: m1
+    fiche: variables-et-references
+    maitrise: fragile
+    vue_le: 2026-10-25
+    prochaine_revision: 2026-10-26
+
+  - id: git-commit
+    titre: "Commit = photo : git add, zone de préparation, git commit, hash"
+    module: m0
+    fiche: git-commit-et-push
+    maitrise: fragile
+    vue_le: 2026-10-25
+    prochaine_revision: 2026-10-26
+
+  - id: git-etats-fichier
+    titre: "Les trois états d'un fichier : untracked, modified, staged"
+    module: m0
+    fiche: git-commit-et-push
+    maitrise: fragile
+    vue_le: 2026-10-25
+    prochaine_revision: 2026-10-26
+
+  - id: git-message-commit
+    titre: "Un bon message de commit : une ligne, ce que fait le commit"
+    module: m0
+    fiche: git-commit-et-push
+    maitrise: fragile
+    vue_le: 2026-10-25
+    prochaine_revision: 2026-10-26
+
+  - id: gitignore
+    titre: "Le .gitignore : ce qui se recrée ou reste propre à une machine"
+    module: m0
+    fiche: git-commit-et-push
+    maitrise: fragile
+    vue_le: 2026-10-25
+    prochaine_revision: 2026-10-26
+
+  - id: git-remote-push-clone
+    titre: "Dépôt distant : origin, git push, git clone (et la clé SSH)"
+    module: m0
+    fiche: git-commit-et-push
+    maitrise: fragile
+    vue_le: 2026-10-25
+    prochaine_revision: 2026-10-26
+
+  - id: port-processus
+    titre: "Un port = un seul serveur ; trouver et arrêter un programme (lsof, kill)"
+    module: m0
+    maitrise: fragile
+    vue_le: 2026-10-25
+    prochaine_revision: 2026-10-26

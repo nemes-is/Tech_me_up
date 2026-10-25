@@ -17,6 +17,7 @@ Un générateur (une fonction avec `yield`) produit ses valeurs **une par une, s
 - Appeler la fonction **n'exécute rien** : ça fabrique un générateur.
 - Chaque `next()` exécute le corps jusqu'au `yield` suivant, puis met la fonction en pause.
 - Un générateur ne se parcourt **qu'une fois**. Épuisé, il ne redonne rien.
+- Il **reprend là où il s'était arrêté**, comme un marque-page, et ne repart jamais du début. Le corps de la fonction n'est donc lu qu'une fois : un `print` placé avant le premier `yield` ne s'affiche qu'une fois.
 
 ## En pratique
 

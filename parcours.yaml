@@ -28,7 +28,7 @@ modules:
       - id: m0-git
         titre: Git et GitHub, premier push
         type: lecon
-        statut: en_cours
+        statut: fait
 
   - id: m1
     numero: 1
