@@ -1,0 +1,75 @@
+# Les notions vues pendant le parcours et leur niveau de maîtrise.
+# maitrise : fragile | en_cours | acquis
+# Format détaillé et règles de répétition espacée : voir CLAUDE.md.
+
+notions:
+  - id: local-git-github
+    titre: Différence entre local, Git et GitHub
+    module: m0
+    fiche: local-git-github
+    maitrise: fragile
+    vue_le: 2026-10-19
+    prochaine_revision: 2026-10-20
+
+  - id: localhost
+    titre: "Serveur local : ce que veut dire localhost"
+    module: m0
+    fiche: localhost
+    maitrise: fragile
+    vue_le: 2026-10-19
+    prochaine_revision: 2026-10-20
+
+  - id: variables-references
+    titre: "Une variable est une étiquette vers un objet (alias de liste)"
+    module: m1
+    fiche: variables-et-references
+    maitrise: fragile
+    vue_le: 2026-10-22
+    prochaine_revision: 2026-10-23
+
+  - id: muable-immuable
+    titre: Objets muables et immuables
+    module: m1
+    fiche: variables-et-references
+    maitrise: fragile
+    vue_le: 2026-10-22
+    prochaine_revision: 2026-10-23
+
+  - id: argument-defaut-mutable
+    titre: "Piège de l'argument par défaut mutable (def f(bag=[]))"
+    module: m1
+    fiche: variables-et-references
+    maitrise: fragile
+    vue_le: 2026-10-22
+    prochaine_revision: 2026-10-23
+
+  - id: generateurs-paresseux
+    titre: "Générateurs : exécution paresseuse et épuisement"
+    module: m1
+    fiche: generateurs-paresseux
+    maitrise: fragile
+    vue_le: 2026-10-22
+    prochaine_revision: 2026-10-23
+
+  - id: comprehension-dict
+    titre: "Compréhension de dictionnaire vs set ({k: v for ...})"
+    module: m1
+    maitrise: fragile
+    vue_le: 2026-10-22
+    prochaine_revision: 2026-10-23
+
+  - id: path-shell
+    titre: Le PATH et la lecture de ~/.zshrc au démarrage du shell
+    module: m0
+    fiche: path-et-shell
+    maitrise: fragile
+    vue_le: 2026-10-22
+    prochaine_revision: 2026-10-23
+
+  - id: environnement-virtuel
+    titre: "uv et .venv : le code se copie, l'environnement se recrée"
+    module: m0
+    fiche: environnement-virtuel
+    maitrise: fragile
+    vue_le: 2026-10-22
+    prochaine_revision: 2026-10-23

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Fiches · Tech me up{% endblock %}
+
+{% block content %}
+<h1>Fiches mémo</h1>
+
+<form class="search" method="get" action="/fiches">
+  <input type="search" name="q" value="{{ q }}" placeholder="Rechercher dans les fiches…" aria-label="Rechercher">
+  {% if tag %}<input type="hidden" name="tag" value="{{ tag }}">{% endif %}
+  {% if theme %}<input type="hidden" name="theme" value="{{ theme }}">{% endif %}
+  <button type="submit">Rechercher</button>
+</form>
+
+<div class="filters">
+  <div class="chips">
+    <span class="chips-label">Thèmes</span>
+    <a class="chip {% if not theme %}chip-active{% endif %}" href="/fiches?q={{ q | urlencode }}&tag={{ tag | urlencode }}">Tous</a>
+    {% for t in themes %}
+    <a class="chip {% if t == theme %}chip-active{% endif %}" href="/fiches?q={{ q | urlencode }}&tag={{ tag | urlencode }}&theme={{ t | urlencode }}">{{ t }}</a>
+    {% endfor %}
+  </div>
+  <div class="chips">
+    <span class="chips-label">Tags</span>
+    {% for t, count in tags %}
+    {% if t == tag %}
+      <a class="chip chip-active" href="/fiches?q={{ q | urlencode }}&theme={{ theme | urlencode }}">#{{ t }} ✕</a>
+    {% else %}
+      <a class="chip" href="/fiches?q={{ q | urlencode }}&theme={{ theme | urlencode }}&tag={{ t | urlencode }}">#{{ t }} <span class="muted">{{ count }}</span></a>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<p class="muted small">
+  {{ fiches | length }} fiche{% if fiches | length > 1 %}s{% endif %}
+  {% if q or tag or theme %} sur {{ total }} · <a href="/fiches">effacer les filtres</a>{% endif %}
+</p>
+
+<div class="fiche-list">
+  {% for f in fiches %}
+  <a class="card fiche-card" href="/fiches/{{ f.slug }}">
+    <span class="eyebrow">{{ f.theme }}</span>
+    <h2>{{ f.title }}</h2>
+    {% if f.excerpt %}<p>{{ f.excerpt }}</p>{% endif %}
+    <p class="muted small">
+      {% for t in f.tags %}#{{ t }} {% endfor %}
+      {% if f.date %}· {{ f.date | date_fr }}{% endif %}
+    </p>
+  </a>
+  {% else %}
+  <p class="muted">Aucune fiche ne correspond.</p>
+  {% endfor %}
+</div>
+{% endblock %}

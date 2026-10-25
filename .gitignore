@@ -1,0 +1,16 @@
+# Environnement virtuel Python (recréé par uv, inutile de le sauvegarder)
+.venv/
+
+# Fichiers générés automatiquement par Python
+__pycache__/
+*.pyc
+
+# Caches d'outils
+.pytest_cache/
+
+# Fichiers système macOS
+.DS_Store
+
+# Réglages de Claude Code propres à cette machine
+.claude/settings.local.json
+

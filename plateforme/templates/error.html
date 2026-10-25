@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Erreur · Tech me up{% endblock %}
+
+{% block content %}
+<article class="prose">
+  <h1>Un fichier YAML est mal formé</h1>
+  <p>La plateforme n'arrive pas à lire un des fichiers du parcours. Le message ci-dessous indique le fichier et la ligne en cause : souvent une indentation décalée ou un <code>:</code> en trop dans un texte (dans ce cas, mets le texte entre guillemets).</p>
+  <pre><code>{{ message }}</code></pre>
+</article>
+{% endblock %}

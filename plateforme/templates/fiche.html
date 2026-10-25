@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ fiche.title }} · Tech me up{% endblock %}
+
+{% block content %}
+<article class="prose">
+  <a class="back" href="/fiches">← Toutes les fiches</a>
+  <p class="eyebrow">{{ fiche.theme }}</p>
+  <h1>{{ fiche.title }}</h1>
+  <p class="muted small">
+    {% for t in fiche.tags %}<a href="/fiches?tag={{ t | urlencode }}">#{{ t }}</a> {% endfor %}
+    {% if fiche.date %}· {{ fiche.date | date_fr }}{% endif %}
+  </p>
+  {{ fiche.html | safe }}
+</article>
+{% endblock %}

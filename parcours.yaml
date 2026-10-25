@@ -1,0 +1,231 @@
+# Le programme du parcours. Ajustable en route (historique dans claude/plan.md).
+# statut : a_faire | en_cours | fait
+# type   : lecon | exercice | projet | test
+# Les étapes de chaque module seront détaillées au moment où on l'attaque.
+
+modules:
+  - id: m0
+    numero: 0
+    titre: Environnement
+    objectif: Savoir où tu en es, avoir des outils prêts et comprendre à quoi ils servent.
+    etapes:
+      - id: m0-cadrage
+        titre: Cadrage du parcours
+        type: lecon
+        statut: fait
+      - id: m0-test
+        titre: Test de positionnement Python
+        type: test
+        statut: en_cours
+      - id: m0-terminal
+        titre: Le terminal et VS Code
+        type: lecon
+        statut: a_faire
+      - id: m0-uv
+        titre: Python et uv (environnements, dépendances)
+        type: lecon
+        statut: en_cours
+      - id: m0-git
+        titre: Git et GitHub, premier push
+        type: lecon
+        statut: en_cours
+
+  - id: m1
+    numero: 1
+    titre: "Python : consolidation"
+    objectif: Passer de « je connais » à « je maîtrise ». Étapes à ajuster selon le test.
+    etapes:
+      - id: m1-revision
+        titre: Révision ciblée (les trous révélés par le test)
+        type: lecon
+        statut: a_faire
+      - id: m1-modules
+        titre: Modules, packages et imports
+        type: lecon
+        statut: a_faire
+      - id: m1-typage
+        titre: Annotations de type
+        type: lecon
+        statut: a_faire
+      - id: m1-tests
+        titre: Tests avec pytest
+        type: lecon
+        statut: a_faire
+      - id: m1-debug
+        titre: Déboguer et lire la doc
+        type: lecon
+        statut: a_faire
+      - id: m1-projet
+        titre: "Projet ludique : jeu textuel ou art génératif"
+        type: projet
+        statut: a_faire
+
+  - id: m2
+    numero: 2
+    titre: HTML et CSS
+    objectif: Construire à la main un site de plusieurs pages liées, bien mis en page.
+    etapes:
+      - id: m2-html
+        titre: Structure HTML et balises sémantiques
+        type: lecon
+        statut: a_faire
+      - id: m2-liens
+        titre: Liens, navigation et organisation des pages
+        type: lecon
+        statut: a_faire
+      - id: m2-css
+        titre: "CSS : sélecteurs, modèle de boîte, typographie"
+        type: lecon
+        statut: a_faire
+      - id: m2-layout
+        titre: "Mise en page : flexbox et grid"
+        type: lecon
+        statut: a_faire
+      - id: m2-responsive
+        titre: Adapter au mobile (responsive)
+        type: lecon
+        statut: a_faire
+      - id: m2-projet
+        titre: "Projet : la micro-encyclopédie"
+        type: projet
+        statut: a_faire
+
+  - id: m3
+    numero: 3
+    titre: Données
+    objectif: Lire, stocker et récupérer des données.
+    etapes:
+      - id: m3-fichiers
+        titre: Fichiers, JSON et CSV
+        type: lecon
+        statut: a_faire
+      - id: m3-api
+        titre: Appeler une API externe
+        type: lecon
+        statut: a_faire
+      - id: m3-sql
+        titre: SQL et SQLite
+        type: lecon
+        statut: a_faire
+      - id: m3-projet
+        titre: "Outil n°1 : outil en ligne de commande"
+        type: projet
+        statut: a_faire
+
+  - id: m4
+    numero: 4
+    titre: Comment marche le web
+    objectif: Comprendre ce qui se passe entre le navigateur et le serveur, et animer une page.
+    etapes:
+      - id: m4-http
+        titre: HTTP, client, serveur et DNS
+        type: lecon
+        statut: a_faire
+      - id: m4-js
+        titre: Bases de JavaScript
+        type: lecon
+        statut: a_faire
+      - id: m4-dom
+        titre: Modifier la page avec JavaScript (le DOM)
+        type: lecon
+        statut: a_faire
+      - id: m4-projet
+        titre: "Encyclopédie en ligne : publication et touches de JS"
+        type: projet
+        statut: a_faire
+
+  - id: m5
+    numero: 5
+    titre: Backend web
+    objectif: Construire une app web avec serveur et base de données.
+    etapes:
+      - id: m5-fastapi
+        titre: FastAPI et les routes
+        type: lecon
+        statut: a_faire
+      - id: m5-templates
+        titre: Templates et formulaires
+        type: lecon
+        statut: a_faire
+      - id: m5-bdd
+        titre: Base de données avec SQLModel
+        type: lecon
+        statut: a_faire
+      - id: m5-auth
+        titre: Authentification
+        type: lecon
+        statut: a_faire
+      - id: m5-capot
+        titre: "Option : ouvrir le capot de la plateforme"
+        type: lecon
+        statut: a_faire
+      - id: m5-projet
+        titre: "Outil n°2 : app web perso"
+        type: projet
+        statut: a_faire
+
+  - id: m6
+    numero: 6
+    titre: Interactivité
+    objectif: Rendre l'interface vivante sans recharger la page.
+    etapes:
+      - id: m6-events
+        titre: Événements et interfaces dynamiques
+        type: lecon
+        statut: a_faire
+      - id: m6-fetch
+        titre: fetch et les APIs
+        type: lecon
+        statut: a_faire
+      - id: m6-htmx
+        titre: htmx ou un mini-framework
+        type: lecon
+        statut: a_faire
+      - id: m6-projet
+        titre: Outil n°2 enrichi
+        type: projet
+        statut: a_faire
+
+  - id: m7
+    numero: 7
+    titre: Mise en production
+    objectif: Mettre une app en ligne proprement.
+    etapes:
+      - id: m7-deploiement
+        titre: Déployer une app
+        type: lecon
+        statut: a_faire
+      - id: m7-config
+        titre: Variables d'environnement et secrets
+        type: lecon
+        statut: a_faire
+      - id: m7-securite
+        titre: Sécurité de base
+        type: lecon
+        statut: a_faire
+      - id: m7-projet
+        titre: Outil n°2 en ligne
+        type: projet
+        statut: a_faire
+
+  - id: m8
+    numero: 8
+    titre: Mini-SaaS
+    objectif: Lancer un vrai produit utilisé par d'autres.
+    etapes:
+      - id: m8-idee
+        titre: Idée et validation
+        type: lecon
+        statut: a_faire
+      - id: m8-mvp
+        titre: MVP et comptes utilisateurs
+        type: projet
+        statut: a_faire
+      - id: m8-paiement
+        titre: Paiement
+        type: projet
+        statut: a_faire
+      - id: m8-lancement
+        titre: Lancement
+        type: projet
+        statut: a_faire

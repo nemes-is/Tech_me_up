@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-main">
+    <p class="eyebrow">Prochaine étape</p>
+    {% if next %}
+      {% set module, step = next %}
+      <h1>{{ step.title }}</h1>
+      <p class="muted">
+        <span class="badge badge-{{ step.kind }}">{{ label(step.kind) }}</span>
+        Module {{ module.number }} · {{ module.title }}
+      </p>
+      <p class="hint">Lance <code>/seance</code> dans Claude Code pour démarrer.</p>
+    {% else %}
+      <h1>Parcours terminé 🎉</h1>
+    {% endif %}
+  </div>
+  <div class="hero-progress">
+    <p class="big-number">{{ percent }}<span>%</span></p>
+    <div class="bar" role="progressbar" aria-valuenow="{{ percent }}" aria-valuemin="0" aria-valuemax="100">
+      <div class="bar-fill" style="width: {{ percent }}%"></div>
+    </div>
+    <p class="muted small">{{ done }} étape{% if done > 1 %}s{% endif %} sur {{ total }}</p>
+  </div>
+</section>
+
+<div class="grid">
+  <section class="card">
+    <h2>Modules</h2>
+    <ol class="modules">
+      {% for m in modules %}
+      <li class="module module-{{ m.status }}">
+        <span class="module-number">{{ m.number }}</span>
+        <div class="module-body">
+          <div class="module-head">
+            <span class="module-title">{{ m.title }}</span>
+            <span class="muted small">{{ m.done }}/{{ m.total }}</span>
+          </div>
+          <div class="bar bar-thin"><div class="bar-fill" style="width: {{ m.percent }}%"></div></div>
+          {% if m.status == "en_cours" %}<p class="module-goal small">{{ m.goal }}</p>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <div class="stack">
+    <section class="card">
+      <h2>Notions</h2>
+      {% if notions_total %}
+        <div class="tiles">
+          {% for level in mastery_levels %}
+          <div class="tile tile-{{ level }}">
+            <span class="tile-value">{{ mastery_counts[level] }}</span>
+            <span class="tile-label">{{ label(level) }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="muted">Aucune notion pour l'instant. Elles apparaîtront après les premières séances.</p>
+      {% endif %}
+
+      {% if due %}
+        <h3>À réviser aujourd'hui</h3>
+        <ul class="notions">
+          {% for n in due %}
+          <li>
+            <span class="dot dot-{{ n.mastery }}" title="{{ label(n.mastery) }}"></span>
+            {% if n.fiche %}<a href="/fiches/{{ n.fiche }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        <p class="hint">Lance <code>/quiz</code> pour les réviser.</p>
+      {% endif %}
+
+      {% if fragile %}
+        <h3>Encore fragiles</h3>
+        <ul class="notions">
+          {% for n in fragile %}
+          <li>
+            <span class="dot dot-fragile"></span>
+            {% if n.fiche %}<a href="/fiches/{{ n.fiche }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}
+            <span class="muted small">· révision le {{ n.next_review | date_fr }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </section>
+
+    <section class="card">
+      <h2>Dernières séances</h2>
+      {% if journal %}
+        <ul class="journal">
+          {% for e in journal %}
+          <li>
+            <a href="/journal/{{ e.slug }}">{{ e.title }}</a>
+            <span class="muted small">{{ e.date | date_fr }}{% if e.duration %} · {{ e.duration }}{% endif %}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="muted">Aucune séance enregistrée.</p>
+      {% endif %}
+    </section>
+  </div>
+</div>
+{% endblock %}

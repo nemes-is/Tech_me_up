@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{ entry.title }} · Tech me up{% endblock %}
+
+{% block content %}
+<article class="prose">
+  <a class="back" href="/">← Tableau de bord</a>
+  <p class="eyebrow">Séance{% if entry.module %} · module {{ entry.module | replace("m", "") }}{% endif %}</p>
+  <h1>{{ entry.title }}</h1>
+  <p class="muted small">{{ entry.date | date_fr }}{% if entry.duration %} · {{ entry.duration }}{% endif %}</p>
+  {{ entry.html | safe }}
+</article>
+{% endblock %}

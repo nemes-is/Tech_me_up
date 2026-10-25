@@ -1,0 +1,191 @@
+/* Couleurs et tailles centralisées dans des variables : changer le thème = changer ces lignes. */
+:root {
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --text: #1d1f24;
+  --muted: #6b6f78;
+  --border: #e4e2dc;
+  --accent: #3b5bdb;
+  --accent-soft: #e7ecfd;
+  --fragile: #e8590c;
+  --fragile-soft: #fff0e6;
+  --en-cours: #c99a06;
+  --en-cours-soft: #fff8db;
+  --acquis: #2f9e44;
+  --acquis-soft: #e6f6e9;
+  --code-bg: #f1f0ec;
+  --radius: 12px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171c;
+    --surface: #1d2027;
+    --text: #e8e9ec;
+    --muted: #9298a3;
+    --border: #2d313a;
+    --accent: #7c9cff;
+    --accent-soft: #232c45;
+    --fragile: #ff8c42;
+    --fragile-soft: #3a2619;
+    --en-cours: #f0c03c;
+    --en-cours-soft: #362f17;
+    --acquis: #5fcf73;
+    --acquis-soft: #1d3322;
+    --code-bg: #0d1117;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1 { font-size: 1.9rem; line-height: 1.2; margin: 0.2rem 0 0.6rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.15rem; margin: 0 0 1rem; }
+h3 { font-size: 0.95rem; margin: 1.4rem 0 0.5rem; }
+
+code { font-family: var(--mono); font-size: 0.88em; background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 5px; }
+
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; font-weight: 600; color: var(--muted); margin: 0; }
+.hint { color: var(--muted); font-size: 0.9rem; margin-bottom: 0; }
+
+/* --- Barre du haut --- */
+.topbar { background: var(--surface); border-bottom: 1px solid var(--border); }
+.topbar-inner {
+  max-width: 1040px; margin: 0 auto; padding: 0.8rem 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.brand { font-weight: 700; color: var(--text); font-size: 1.05rem; }
+.brand:hover { text-decoration: none; }
+.brand-mark { font-family: var(--mono); color: var(--accent); margin-right: 0.2rem; }
+nav { display: flex; gap: 0.3rem; }
+nav a { color: var(--muted); padding: 0.35rem 0.75rem; border-radius: 8px; font-size: 0.95rem; }
+nav a:hover { text-decoration: none; color: var(--text); }
+nav a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+
+main { max-width: 1040px; margin: 0 auto; padding: 2rem 16px 4rem; }
+
+/* --- Cartes et grille --- */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; }
+.grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 1.2rem; align-items: start; }
+.stack { display: grid; gap: 1.2rem; }
+
+/* --- Bandeau « prochaine étape » --- */
+.hero {
+  display: grid; grid-template-columns: 1fr 220px; gap: 2rem; align-items: center;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.8rem; margin-bottom: 1.2rem;
+}
+.hero-progress { text-align: right; }
+.big-number { font-size: 3rem; font-weight: 700; line-height: 1; margin: 0 0 0.6rem; letter-spacing: -0.03em; }
+.big-number span { font-size: 1.4rem; color: var(--muted); margin-left: 0.1rem; }
+
+/* --- Barres de progression --- */
+.bar { height: 10px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.bar-thin { height: 6px; margin-top: 0.35rem; }
+.bar-fill { height: 100%; background: var(--accent); border-radius: 99px; }
+
+/* --- Badges --- */
+.badge {
+  display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 0.1rem 0.55rem;
+  border-radius: 99px; background: var(--accent-soft); color: var(--accent); margin-right: 0.4rem;
+}
+.badge-projet { background: var(--acquis-soft); color: var(--acquis); }
+.badge-test { background: var(--en-cours-soft); color: var(--en-cours); }
+
+/* --- Liste des modules --- */
+.modules { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
+.module { display: flex; gap: 0.85rem; align-items: flex-start; }
+.module-number {
+  flex: none; width: 28px; height: 28px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 0.85rem; font-weight: 700;
+  background: var(--border); color: var(--muted);
+}
+.module-en_cours .module-number { background: var(--accent); color: var(--surface); }
+.module-fait .module-number { background: var(--acquis); color: var(--surface); }
+.module-a_faire .module-title { color: var(--muted); }
+.module-body { flex: 1; min-width: 0; }
+.module-head { display: flex; justify-content: space-between; gap: 0.5rem; }
+.module-title { font-weight: 600; }
+.module-goal { color: var(--muted); margin: 0.35rem 0 0; }
+.module-fait .bar-fill { background: var(--acquis); }
+
+/* --- Tuiles de maîtrise --- */
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+.tile { border-radius: 10px; padding: 0.8rem; display: flex; flex-direction: column; }
+.tile-value { font-size: 1.6rem; font-weight: 700; line-height: 1.1; }
+.tile-label { font-size: 0.8rem; font-weight: 600; }
+.tile-fragile { background: var(--fragile-soft); color: var(--fragile); }
+.tile-en_cours { background: var(--en-cours-soft); color: var(--en-cours); }
+.tile-acquis { background: var(--acquis-soft); color: var(--acquis); }
+
+.notions, .journal { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
+.journal li { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 0.45rem; vertical-align: middle; }
+.dot-fragile { background: var(--fragile); }
+.dot-en_cours { background: var(--en-cours); }
+.dot-acquis { background: var(--acquis); }
+
+/* --- Page des fiches --- */
+.search { display: flex; gap: 0.5rem; margin: 1rem 0; }
+.search input {
+  flex: 1; min-width: 0; font: inherit; padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text);
+}
+.search input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+.search button {
+  font: inherit; font-weight: 600; padding: 0.6rem 1.1rem; border: none; border-radius: 10px;
+  background: var(--accent); color: var(--surface); cursor: pointer;
+}
+.filters { display: grid; gap: 0.5rem; margin-bottom: 1rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+.chips-label { font-size: 0.8rem; color: var(--muted); width: 4rem; }
+.chip {
+  font-size: 0.85rem; padding: 0.2rem 0.7rem; border-radius: 99px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+}
+.chip:hover { text-decoration: none; border-color: var(--accent); }
+.chip-active { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.chip-active .muted { color: inherit; }
+
+.fiche-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.fiche-card { color: var(--text); display: flex; flex-direction: column; gap: 0.3rem; transition: border-color 0.15s; }
+.fiche-card:hover { text-decoration: none; border-color: var(--accent); }
+.fiche-card h2 { margin: 0; }
+.fiche-card p { margin: 0; }
+
+/* --- Lecture d'une fiche ou d'une séance --- */
+.prose { max-width: 720px; margin: 0 auto; }
+.prose h2 { font-size: 1.3rem; margin: 2rem 0 0.6rem; }
+.prose table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.93rem; display: block; overflow-x: auto; }
+.prose th, .prose td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+.prose th { background: var(--surface); }
+.prose pre, .codehilite {
+  background: var(--code-bg) !important; border-radius: 10px; overflow-x: auto;
+}
+.prose pre { padding: 1rem 1.1rem; font-size: 0.88rem; line-height: 1.5; margin: 1rem 0; }
+.prose pre code { background: none; padding: 0; font-size: inherit; }
+.codehilite pre { margin: 0; }
+.back { display: inline-block; margin-bottom: 1.2rem; font-size: 0.9rem; }
+
+/* --- Téléphone / fenêtre étroite --- */
+@media (max-width: 760px) {
+  .grid, .hero { grid-template-columns: 1fr; }
+  .hero { gap: 1.2rem; }
+  .hero-progress { text-align: left; }
+  h1 { font-size: 1.6rem; }
+}
